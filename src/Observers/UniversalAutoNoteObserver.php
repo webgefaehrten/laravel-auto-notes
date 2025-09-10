@@ -83,17 +83,17 @@ class UniversalAutoNoteObserver extends BaseAutoNoteObserver
     protected function cfg(Model $m, bool $needInclude = false, bool $needLabels = false): array
     {
         $context = method_exists($m, 'autoNoteContext')
-            ? ($m->autoNoteContext() ?? Str::kebab(class_basename($m)))
-            : Str::kebab(class_basename($m));
-
-        $name = method_exists($m, 'autoNoteDisplayName')
-            ? ($m->autoNoteDisplayName() ?? '')
-            : '';
-
-        $owner = method_exists($m, 'autoNoteOwner') ? ($m->autoNoteOwner() ?? null) : null;
+            ? ($m->autoNoteContext() ?? \Illuminate\Support\Str::kebab(class_basename($m)))
+            : \Illuminate\Support\Str::kebab(class_basename($m));
+    
+        $name = method_exists($m, 'autoNoteDisplayName') ? ($m->autoNoteDisplayName() ?? '') : '';
+    
+        // ✨ NEU: Owner robust ermitteln (Model | Class | Array | Closure | null)
+        $owner = OwnerResolver::resolve($m);
+    
         $include = $needInclude && method_exists($m, 'autoNoteInclude') ? ($m->autoNoteInclude() ?? []) : [];
-        $labels  = $needLabels && method_exists($m, 'autoNoteLabels') ? ($m->autoNoteLabels() ?? []) : [];
-
+        $labels  = $needLabels && method_exists($m, 'autoNoteLabels')  ? ($m->autoNoteLabels()  ?? []) : [];
+    
         return [$context, $name, $owner, $include, $labels];
     }
 }
