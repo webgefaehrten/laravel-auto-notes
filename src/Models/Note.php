@@ -14,7 +14,7 @@ class Note extends Model
 {
     protected $table = 'notes';
 
-    protected $fillable = ['context','title','body','meta','created_by'];
+    protected $fillable = ['context','title','body','meta','created_by','owner_type','owner_id'];
 
     protected $casts = ['meta' => 'array'];
 
