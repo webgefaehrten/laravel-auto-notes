@@ -1,0 +1,44 @@
+{
+  "name": "webgefaehrten/laravel-auto-notes",
+  "description": "Polymorphic notes package for Laravel models with owner support, field diffs, retention, and multi-language support.",
+  "keywords": [
+      "laravel",
+      "notes",
+      "observer",
+      "timeline",
+      "activity",
+      "history"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+      {
+          "name": "Webgefaehrten",
+          "email": "hallo@webgefaehrten.de",
+          "homepage": "https://github.com/Webgefaehrten",
+          "role": "Developer"
+      }
+  ],
+  "support": {
+      "issues": "https://github.com/Webgefaehrten/laravel-auto-notes/issues",
+      "source": "https://github.com/Webgefaehrten/laravel-auto-notes"
+  },
+  "require": {
+      "php": "^8.1",
+      "illuminate/support": "^10.0|^11.0"
+  },
+  "autoload": {
+      "psr-4": {
+          "Webgefaehrten\\AutoNotes\\": "src/"
+      }
+  },
+  "extra": {
+      "laravel": {
+          "providers": [
+              "Webgefaehrten\\AutoNotes\\AutoNotesServiceProvider"
+          ]
+      }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
