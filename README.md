@@ -54,7 +54,21 @@ class CustomerSite extends Model implements ProvidesAutoNotesConfig
     public function autoNoteContext(): ?string { return 'site'; }
     public function autoNoteLabels(): array { return ['name'=>'Name','city'=>'Ort']; }
     public function autoNoteInclude(): array { return ['name','city','zip','street']; }
+
+    // Variante 1: direkte Relation (funktioniert, wenn Relation verfügbar ist)
     public function autoNoteOwner(): ?Model { return $this->customer; }
+
+    // Variante 2: robuste Variante (nur Klasse zurückgeben, FK wird automatisch erkannt)
+    public function autoNoteOwner(): Model|string|array|\Closure|null
+    {
+        return \App\Models\Customer::class;
+    }
+
+    public function autoNoteOwnerKey(): ?string
+    {
+        return 'customer_id'; // optional
+    }
+
     public function autoNoteDisplayName(): ?string { return $this->name; }
 }
 ```
@@ -158,7 +172,21 @@ class CustomerSite extends Model implements ProvidesAutoNotesConfig
     public function autoNoteContext(): ?string { return 'site'; }
     public function autoNoteLabels(): array { return ['name'=>'Name','city'=>'City']; }
     public function autoNoteInclude(): array { return ['name','city','zip','street']; }
+
+    // Variant 1: direct relation
     public function autoNoteOwner(): ?Model { return $this->customer; }
+
+    // Variant 2: more robust (only return class, FK auto-resolved)
+    public function autoNoteOwner(): Model|string|array|\Closure|null
+    {
+        return \App\Models\Customer::class;
+    }
+
+    public function autoNoteOwnerKey(): ?string
+    {
+        return 'customer_id'; // optional
+    }
+
     public function autoNoteDisplayName(): ?string { return $this->name; }
 }
 ```
@@ -210,3 +238,19 @@ php artisan vendor:publish --tag=auto-notes-lang
 ```
 
 Available languages: `en`, `de`.
+
+---
+
+## ℹ️ Owner Resolution
+- `autoNoteOwner()` may return:
+  - a `Model`
+  - a `class-string` (e.g. `Customer::class`)
+  - an array `[Customer::class, $id]`
+  - a `Closure` returning a `Model`
+  - or `null`
+
+- Optional methods:
+  - `autoNoteOwnerKey()` → explicit FK name
+  - `autoNoteOwnerRelation()` → explicit relation name
+
+Default heuristics: `customer_id` → `owner_id` → `{ClassSnake}_id` → relation.
