@@ -18,8 +18,6 @@ return new class extends Migration {
             $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
 
-            $table->index(['subject_type','context']);
-            $table->index(['owner_type','owner_id']);
             $table->index(['subject_type','subject_id','created_at'], 'notes_subject_created_idx');
             $table->index(['owner_type','owner_id','created_at'], 'notes_owner_created_idx');
             $table->index(['context','created_at'], 'notes_context_created_idx');
