@@ -33,8 +33,8 @@ class DiffRenderer
     {
         if (empty($diffs)) return '';
 
-        $empty = Lang::get('auto-notes::messages.empty');
-        if (!$empty || $empty === 'auto-notes::messages.empty') {
+        $empty = Lang::get('auto-notes::autonotes.empty');
+        if (!$empty || $empty === 'auto-notes::autonotes.empty') {
             $empty = config('auto-notes.empty_symbol', '∅');
         }
 
@@ -43,7 +43,7 @@ class DiffRenderer
             $from = ($from === null || $from === '') ? $empty : $from;
             $to   = ($to   === null || $to   === '') ? $empty : $to;
 
-            $line = Lang::get('auto-notes::messages.diff_from_to', [
+            $line = Lang::get('auto-notes::autonotes.diff_from_to', [
                 'from' => $from,
                 'to'   => $to,
             ]);

@@ -15,13 +15,13 @@ class UniversalAutoNoteObserver extends BaseAutoNoteObserver
         [$context, $name, $owner] = $this->cfg($m);
 
         $titleContext = ucfirst($context);
-        $titleAction  = Lang::get('auto-notes::messages.created', ['context' => $titleContext]);
+        $titleAction  = Lang::get('auto-notes::autonotes.created', ['context' => $titleContext]);
         $title        = '['.$titleContext.'] '.($name ? "{$titleAction}: {$name}" : $titleAction);
 
         $body = '**'.$titleContext.'** '
-              . Lang::get('auto-notes::messages.created', ['context' => $titleContext])
+              . Lang::get('auto-notes::autonotes.created', ['context' => $titleContext])
               . ' '
-              . Lang::get('auto-notes::messages.by_user_at', [
+              . Lang::get('auto-notes::autonotes.by_user_at', [
                     'user' => $this->authorName(),
                     'date' => now()->format('d.m.Y H:i'),
                 ]);
@@ -44,13 +44,13 @@ class UniversalAutoNoteObserver extends BaseAutoNoteObserver
         }
 
         $titleContext = ucfirst($context);
-        $titleAction  = Lang::get('auto-notes::messages.updated', ['context' => $titleContext]);
+        $titleAction  = Lang::get('auto-notes::autonotes.updated', ['context' => $titleContext]);
         $title        = '['.$titleContext.'] '.($name ? "{$titleAction}: {$name}" : $titleAction);
 
         $body = '**'.$titleContext.'** '
-              . Lang::get('auto-notes::messages.updated', ['context' => $titleContext])
+              . Lang::get('auto-notes::autonotes.updated', ['context' => $titleContext])
               . ' '
-              . Lang::get('auto-notes::messages.by_user_at', [
+              . Lang::get('auto-notes::autonotes.by_user_at', [
                     'user' => $this->authorName(),
                     'date' => now()->format('d.m.Y H:i'),
                 ])
@@ -65,13 +65,13 @@ class UniversalAutoNoteObserver extends BaseAutoNoteObserver
         [$context, $name, $owner] = $this->cfg($m);
 
         $titleContext = ucfirst($context);
-        $titleAction  = Lang::get('auto-notes::messages.deleted', ['context' => $titleContext]);
+        $titleAction  = Lang::get('auto-notes::autonotes.deleted', ['context' => $titleContext]);
         $title        = '['.$titleContext.'] '.($name ? "{$titleAction}: {$name}" : $titleAction);
 
         $body = '**'.$titleContext.'** '
-              . Lang::get('auto-notes::messages.deleted', ['context' => $titleContext])
+                . Lang::get('auto-notes::autonotes.deleted', ['context' => $titleContext])
               . ' '
-              . Lang::get('auto-notes::messages.by_user_at', [
+              . Lang::get('auto-notes::autonotes.by_user_at', [
                     'user' => $this->authorName(),
                     'date' => now()->format('d.m.Y H:i'),
                 ]);
