@@ -129,9 +129,9 @@ composer require webgefaehrten/laravel-auto-notes
 
 Publish:
 ```bash
-php artisan vendor:publish --provider="YourVendor\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-config
-php artisan vendor:publish --provider="YourVendor\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-migrations
-php artisan vendor:publish --provider="YourVendor\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-lang
+php artisan vendor:publish --provider="Webgefaehrten\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-config
+php artisan vendor:publish --provider="Webgefaehrten\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-migrations
+php artisan vendor:publish --provider="Webgefaehrten\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-lang
 ```
 
 Run migrations:

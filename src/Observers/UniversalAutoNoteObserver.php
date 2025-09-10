@@ -5,7 +5,7 @@ namespace Webgefaehrten\AutoNotes\Observers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Str;
-use YourVendor\AutoNotes\Support\DiffRenderer;
+use Webgefaehrten\AutoNotes\Support\DiffRenderer;
 
 class UniversalAutoNoteObserver extends BaseAutoNoteObserver
 {

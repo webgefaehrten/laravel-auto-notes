@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use YourVendor\AutoNotes\Models\Note;
+use Webgefaehrten\AutoNotes\Models\Note;
 
 /**
  * Löscht oder archiviert alte Notizen gemäß Config.

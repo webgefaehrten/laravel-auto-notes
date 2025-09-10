@@ -5,7 +5,7 @@ namespace Webgefaehrten\AutoNotes\Console;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use YourVendor\AutoNotes\Models\Note;
+use Webgefaehrten\AutoNotes\Models\Note;
 
 /**
  * Baut die owner_notes_index Tabelle neu auf.

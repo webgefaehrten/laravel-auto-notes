@@ -4,7 +4,7 @@ namespace Webgefaehrten\AutoNotes\Observers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use YourVendor\AutoNotes\Models\Note;
+use Webgefaehrten\AutoNotes\Models\Note;
 
 /**
  * Hält die optionale owner_notes_index Tabelle aktuell.
