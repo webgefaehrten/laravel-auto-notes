@@ -19,14 +19,14 @@ Polymorphe Notizen für Laravel-Modelle mit optionalem Owner (Aggregation), auto
 
 ### 🚀 Installation
 ```bash
-composer require your-vendor/laravel-auto-notes
+composer require webgefaehrten/laravel-auto-notes
 ```
 
 Publizieren:
 ```bash
-php artisan vendor:publish --provider="YourVendor\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-config
-php artisan vendor:publish --provider="YourVendor\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-migrations
-php artisan vendor:publish --provider="YourVendor\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-lang
+php artisan vendor:publish --provider="Webgefaehrten\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-config
+php artisan vendor:publish --provider="Webgefaehrten\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-migrations
+php artisan vendor:publish --provider="Webgefaehrten\AutoNotes\AutoNotesServiceProvider" --tag=auto-notes-lang
 ```
 
 Migrationen ausführen:
@@ -38,8 +38,8 @@ php artisan migrate
 
 **Subject-Model (z. B. `CustomerSite`):**
 ```php
-use YourVendor\AutoNotes\Traits\HasNotes;
-use YourVendor\AutoNotes\Contracts\ProvidesAutoNotesConfig;
+use Webgefaehrten\AutoNotes\Traits\HasNotes;
+use Webgefaehrten\AutoNotes\Contracts\ProvidesAutoNotesConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class CustomerSite extends Model implements ProvidesAutoNotesConfig
@@ -61,7 +61,7 @@ class CustomerSite extends Model implements ProvidesAutoNotesConfig
 
 **Owner-Model (z. B. `Customer`):**
 ```php
-use YourVendor\AutoNotes\Traits\AggregatesNotes;
+use Webgefaehrten\AutoNotes\Traits\AggregatesNotes;
 
 class Customer extends Model
 {
@@ -124,7 +124,7 @@ Verfügbare Sprachen: `de`, `en`.
 
 ### 🚀 Installation
 ```bash
-composer require your-vendor/laravel-auto-notes
+composer require webgefaehrten/laravel-auto-notes
 ```
 
 Publish:
@@ -143,8 +143,8 @@ php artisan migrate
 
 **Subject model (e.g. `CustomerSite`):**
 ```php
-use YourVendor\AutoNotes\Traits\HasNotes;
-use YourVendor\AutoNotes\Contracts\ProvidesAutoNotesConfig;
+use Webgefaehrten\AutoNotes\Traits\HasNotes;
+use Webgefaehrten\AutoNotes\Contracts\ProvidesAutoNotesConfig;
 use Illuminate\Database\Eloquent\Model;
 
 class CustomerSite extends Model implements ProvidesAutoNotesConfig
@@ -165,7 +165,7 @@ class CustomerSite extends Model implements ProvidesAutoNotesConfig
 
 **Owner model (e.g. `Customer`):**
 ```php
-use YourVendor\AutoNotes\Traits\AggregatesNotes;
+use Webgefaehrten\AutoNotes\Traits\AggregatesNotes;
 
 class Customer extends Model
 {
