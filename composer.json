@@ -32,7 +32,10 @@
   "autoload": {
       "psr-4": {
           "Webgefaehrten\\AutoNotes\\": "src/"
-      }
+      },
+      "files": [
+          "src/Support/helpers.php"
+      ]
   },
   "extra": {
       "laravel": {
