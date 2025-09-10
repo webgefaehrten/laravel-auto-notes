@@ -16,16 +16,13 @@ class AutoNotesServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Quelle: direkt /lang im Paket
-        $pkgLang = __DIR__.'/../lang';
+        // Paket-Translations laden (Namespace: auto-notes)
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'auto-notes');
 
-        // Für namespacete Nutzung (fallback im Package)
-        $this->loadTranslationsFrom($pkgLang, 'auto-notes');
-
-        // Ziel: moderne App-Struktur lang/{locale}/autonotes.php
+        // Publish-Ziel: direkt lang/{locale}/autonotes.php in der App
         $this->publishes([
-            $pkgLang.'/en/autonotes.php' => base_path('lang/en/autonotes.php'),
-            $pkgLang.'/de/autonotes.php' => base_path('lang/de/autonotes.php'),
+            __DIR__.'/../lang/en/autonotes.php' => base_path('lang/en/autonotes.php'),
+            __DIR__.'/../lang/de/autonotes.php' => base_path('lang/de/autonotes.php'),
         ], 'auto-notes-lang');
 
         // Publish Migrations
