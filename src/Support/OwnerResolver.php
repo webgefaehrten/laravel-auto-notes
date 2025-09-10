@@ -2,6 +2,7 @@
 
 namespace Webgefaehrten\AutoNotes\Support;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
 class OwnerResolver
