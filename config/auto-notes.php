@@ -7,7 +7,7 @@ return [
     'empty_symbol'   => '∅',
     'truncate'       => 300,
 
-    'default_observer' => \YourVendor\AutoNotes\Observers\UniversalAutoNoteObserver::class,
+    'default_observer' => \Webgefaehrten\AutoNotes\Observers\UniversalAutoNoteObserver::class,
 
     // Aufbewahrung / Pruning
     'retention_days'      => 730,
